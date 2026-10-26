@@ -58,14 +58,17 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Debugging with `d()` and `dd()` | [Lec-07](#lec-07---php-lec-06), [Lec-10](#lec-10---php-lec-09) | `www/controllers/games.php`; `drinks.php` |
 | DOM: create, append, remove elements | [Lec-18](#lec-18---js-lec-04) | `demo-02.js` |
 | DOM: `querySelector`, `querySelectorAll` | [Lec-18](#lec-18---js-lec-04) | `demo-01.js` |
-| DOM: render a list from data | [Lec-18](#lec-18---js-lec-04) | `demo-03.js` |
+| DOM: render a list from data | [Lec-18](#lec-18---js-lec-04), [Lec-19](#lec-19---js-lec-05) | Lec-18 `demo-03.js`; Lec-19 `demo-04.js` |
+| Events: `addEventListener` and the event object | [Lec-19](#lec-19---js-lec-05) | `demo-01.js` |
 | Escaping output with `e()` | [Lec-02](#lec-02---php-lec-01), [Lec-04](#lec-04---php-lec-03), [Lec-09](#lec-09---php-lec-08) | home page; `/team`; `/demo/xss` |
 | Flash messages | [Lec-12](#lec-12---php-lec-11), [Auth demo](#authentication-and-authorization-self-study) | `/demo-05/form`; login page |
-| Forms: GET vs POST, `$_GET` and `$_POST` | [Lec-12](#lec-12---php-lec-11) | `/demo-01/form` |
+| Form fields in JS: `value`, `checked`, radio buttons | [Lec-19](#lec-19---js-lec-05) | `demo-03.js` |
 | Form validation on the server | [Lec-12](#lec-12---php-lec-11) | `/demo-02/form`, `www/helpers/order.php` |
+| Forms: GET vs POST, `$_GET` and `$_POST` | [Lec-12](#lec-12---php-lec-11) | `/demo-01/form` |
 | Functions are values (declarations, expressions) | [Lec-16](#lec-16---js-lec-02) | `demo-01.js` |
 | "Headers already sent" | [Lec-11](#lec-11---php-lec-10) | `/demo-01/early` |
 | `innerHTML` vs `textContent` | [Lec-18](#lec-18---js-lec-04) | `demo-04.js` |
+| `input` event | [Lec-19](#lec-19---js-lec-05) | `demo-04.js` |
 | Interpolation: `"$name"` and `"{$name}"` | [Lec-05](#lec-05---php-lec-04) | `/interpolation` |
 | JSON | [Lec-17](#lec-17---js-lec-03) | `demo-03.js` |
 | `LEFT JOIN` and `COALESCE` | [Lec-08](#lec-08---php-lec-07), [Lec-10](#lec-10---php-lec-09) | `database/lecture/` SQL files; `drink_sales_starter()` |
@@ -80,6 +83,7 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Path parameters (`/nmsg/:colour`) | [Lec-03](#lec-03---php-lec-02) | `www/routes/web.php` |
 | PHP idioms (`===`, `.`, `->`, `[]`, `require`) | [Lec-10](#lec-10---php-lec-09) | 🐘 notes at the bottom of `drinks.php` |
 | PHPDoc `@var` lines in views | [Lec-02](#lec-02---php-lec-01) | `www/views/app/index.php` |
+| `preventDefault()` on a form submit | [Lec-19](#lec-19---js-lec-05) | `demo-02.js` |
 | Query strings and `$_GET` | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09) | `/msg?colour=...`; `/drinks` |
 | Redirect after POST | [Lec-12](#lec-12---php-lec-11) | `/demo-03/form` |
 | Routes (`www/routes/web.php`) | [Lec-02](#lec-02---php-lec-01) | `www/routes/web.php` |
@@ -249,3 +253,12 @@ Read it with the `authentication-and-authorization-how-to.md` handout in the sam
 - **`/demo-02`** - creating an element, adding it to the page, and removing one.
 - **`/demo-03`** - rendering a list from an array of objects, and emptying it before rendering again.
 - **`/demo-04`** - `textContent` vs `innerHTML`, and how `innerHTML` lets a string run as code. `innerHTML` isn't allowed in the Project; this demo shows why.
+
+### Lec-19 - JS Lec 05
+
+2026-10-28
+
+- **`/demo-01`** - listening for a click: `addEventListener`, the event object, changing the page from a listener, and passing a function rather than calling it.
+- **`/demo-02`** - submitting a form: a submit listener, the page reload a form does by default, and `preventDefault()` to stop it.
+- **`/demo-03`** - reading form fields: `value` from text and number fields (always a string), `checked` from a checkbox, and finding the selected radio button.
+- **`/demo-04`** - a form that adds an item to the array from Lec-18 and renders the list again, and the `input` event that fires on every change to a field.
