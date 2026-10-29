@@ -6,7 +6,7 @@
 
 _This index was written by Claude, an AI assistant made by Anthropic, from the code in each lecture repo._
 
-Trying to remember where you saw something demonstrated? Look it up in the [topic lookup](#topic-lookup), then go to that lecture's section for the routes and files.
+Trying to remember where you saw something demonstrated? Look it up in the [topic lookup](#topic-lookup), then go to that lecture's section for the routes and files. Lectures are listed newest first.
 
 ---
 
@@ -16,9 +16,9 @@ Each lecture's demo code is in **your own copy** of that lecture's repo, the one
 
 Three lectures were live-coded, so the finished code is in a public repo instead:
 
-- Lec-02: [lec-02-php-lec-01-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-02-php-lec-01-end)
-- Lec-03: [lec-03-php-lec-02-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-03-php-lec-02-end)
 - Lec-07: [lec-07-php-lec-06-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-07-php-lec-06-end)
+- Lec-03: [lec-03-php-lec-02-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-03-php-lec-02-end)
+- Lec-02: [lec-02-php-lec-01-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-02-php-lec-01-end)
 
 ### Running a lecture repo
 
@@ -107,52 +107,117 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 
 ---
 
+## JavaScript lectures
+
+### Lec-20 - JS Lec 06
+
+2026-10-30
+
+- **`/demo-01`** - bubbling: a click on a button is heard by the button and by every element around it, innermost first, and `event.target` says what was actually clicked.
+- **`/demo-02`** - one listener per row, and why it fails: a row added later, or rebuilt by rendering again, has no listener. The rows come from `bag-rows.js`, a module the next two demos share.
+- **`/demo-03`** - event delegation: one listener on the list, `closest("button")` to find the clicked button even when the click lands on its icon, and rows added later working too.
+- **`/demo-04`** - reading the item's id from `data-item-id` with `dataset` (always a string), then removing the item from the array and rendering the list again.
+
+### Lec-19 - JS Lec 05
+
+2026-10-28
+
+- **`/demo-01`** - listening for a click: `addEventListener`, the event object, changing the page from a listener, and passing a function rather than calling it.
+- **`/demo-02`** - submitting a form: a submit listener, the page reload a form does by default, and `preventDefault()` to stop it.
+- **`/demo-03`** - reading form fields: `value` from text and number fields (always a string), `checked` from a checkbox, and finding the selected radio button.
+- **`/demo-04`** - a form that adds an item to the array from Lec-18 and renders the list again, and the `input` event that fires on every change to a field.
+
+### Lec-18 - JS Lec 04
+
+2026-10-26
+
+- **`/demo-01`** - selecting from the page: `querySelector`, `querySelectorAll`, changing text, and a selector that matches nothing.
+- **`/demo-02`** - creating an element, adding it to the page, and removing one.
+- **`/demo-03`** - rendering a list from an array of objects, and emptying it before rendering again.
+- **`/demo-04`** - `textContent` vs `innerHTML`, and how `innerHTML` lets a string run as code. `innerHTML` isn't allowed in the Project; this demo shows why.
+
+### Lec-17 - JS Lec 03
+
+2026-10-23
+
+- **`/demo-01`** - objects: dot and bracket access, and adding properties.
+- **`/demo-02`** - objects are shared, not copied, and reassigning a `const`.
+- **`/demo-03`** - arrays of objects with `filter`, `map` and `find`, and JSON.
+- **`/demo-04`** - `sort`: text order by default, comparing numbers and objects, and how it changes the original array.
+- **`/demo-05`** - modules: one entry script per page, `export` and `import`, and how module paths are written.
+
+### Lec-16 - JS Lec 02
+
+2026-10-21
+
+- **`/demo-01`** - functions are values: declarations, expressions and arrow functions.
+- **`/demo-02`** - arrays, indexes and `length`, `for...of`, and why not `for...in`.
+- **`/demo-03`** - callbacks and `forEach`.
+- **`/demo-04`** - `map`, `filter` and `find`, and what `find` gives back when nothing matches.
+
+### Lec-15 - JS Lec 01
+
+2026-10-19
+
+- **`/demo-01`** - where it runs: PHP on the server, JavaScript in the browser.
+- **`/demo-02`** - values and variables: `const`, `let`, `typeof`, `undefined`.
+- **`/demo-03`** - the `+` trap, `Number()` and `NaN`.
+- **`/demo-04`** - template literals.
+- **`/demo-05`** - truthy and falsy values, and why `===` beats `==`.
+
+---
+
 ## PHP lectures
 
-### Lec-02 - PHP Lec 01
+### Authentication and authorization (self-study)
 
-2026-09-09 · Code: [lec-02-php-lec-01-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-02-php-lec-01-end)
+2026-10-07 · Repo: `auth-practice` (accepted through Classroom 50)
 
-- **`/`** - a tour of the framework: routes, controllers and views, and which file does what. Also why every value goes through `e()` before it's echoed, PHPDoc `@var` lines in views, and the 404 page.
-- **`/hello`** - adding a route, a controller and a view of your own.
+Read it with the `authentication-and-authorization-how-to.md` handout in the same repo. Its README has a table of which file shows what.
 
-### Lec-03 - PHP Lec 02
+- **Demo 01** - hashing passwords: `password_hash()` and `password_verify()`.
+- **Demo 02** - logging in and out, a restricted page, and a one-time flash message on the login form.
+- **Demo 03** - roles: a page and a button only managers can use.
 
-2026-09-11 · Code: [lec-03-php-lec-02-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-03-php-lec-02-end)
+### Lec-12 - PHP Lec 11
 
-- **`/msg?colour=...`** - reading a query string through `$_GET`, with `??` supplying a default.
-- **`/nmsg/:colour`** - a path parameter, read as `$_GET['colour']`, and `isset()` inside a function of your own.
+2026-10-05
 
-### Lec-04 - PHP Lec 03
+- **Demo 01** - `/demo-01/form`: the same form sent with GET and with POST, and what arrives in `$_GET` and `$_POST`.
+- **Demo 02** - `/demo-02/form`: never trust what arrives. Validation on the server (`www/helpers/order.php`), with errors shown in place.
+- **Demo 03** - `/demo-03/form`: redirect after POST.
+- **Demo 04** - `/demo-04/write` and `/demo-04/read`: sessions, the session id, and its cookie.
+- **Demo 05** - `/demo-05/form`: flash messages and sticky values, carried across a redirect.
 
-2026-09-14
+Lec-13 (PHP Lec 12) finished the Lec-12 material, so it has no repo of its own. Lec-14 was the PHP midterm.
 
-- **`/callout-demo`** - partials, the simple version: one partial rendered three times with different data.
-- **`/team`** - partials, the realistic version: a card partial rendered once per item in a `foreach`. Also an array of associative arrays (the shape a query returns), and an escaping check on a nasty value.
-- Files: `www/views/partials/callout.php`, `member-card.php`, `document-head.php`.
+### Lec-11 - PHP Lec 10
 
-### Lec-05 - PHP Lec 04
+2026-10-02
 
-2026-09-16
+- **Demo 01: cookie basics** - `/demo-01/set` (a 7-day cookie and a session cookie), `/demo-01/read` (`$_COOKIE`), `/demo-01/clear` (deleting by expiring), `/demo-01/early` ("headers already sent"), `/demo-01/deep/trap` (a cookie set without a path).
+- **Demo 02: never trust a cookie** - `/demo-02/join` and `/demo-02/discount`: a discount anyone can give themselves in DevTools.
+- **Demo 03: time zones** - `/demo-03/time`: store times in UTC, show them in Edmonton time.
 
-- **`/interpolation`** - double vs single quotes, `"$name"` vs `"{$name}"`, and the cases where only the braces work (text after the name, array keys, nested arrays, method calls).
-- **`/lab-schedule`** - the alternative syntax for `if` / `elseif` / `else` and `foreach` in a view, an empty-state check, and dates with `DateTimeImmutable`.
+### Lec-10 - PHP Lec 09
 
-### Lec-06 - PHP Lec 05
+2026-09-28
 
-2026-09-18
+A drink sales table, built in three stages:
 
-The same table of games, shown three ways:
+- **`/drinks-starter`** - a plain table from a query with `LEFT JOIN`, `SUM` and `COALESCE`.
+- **`/drinks-broken-sort`** - clickable column headers that don't sort, and why: a placeholder can't stand in for a column name or `ASC` / `DESC`.
+- **`/drinks`** - search plus sorting done properly: cleaning up `$_GET`, a whitelist for the sort column and direction, and links built in the controller with `http_build_query()`. The 🐘 notes at the bottom of `www/controllers/drinks.php` explain the PHP idioms used.
 
-- **`/games-alt-syntax`** - written with the alternative syntax.
-- **`/games-std-syntax`** - the same table written with braces, for comparison.
-- **`/games-alt-with-partials`** - each table row moved into a partial (`www/views/partials/game-row.php`).
+### Lec-09 - PHP Lec 08
 
-### Lec-07 - PHP Lec 06
+2026-09-25
 
-2026-09-21 · Code: [lec-07-php-lec-06-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-07-php-lec-06-end)
-
-- **`/games`** - the first database query: a method in `DatabaseQueries`, SQL written as a heredoc, `run()` and `fetchAll()`, and `dd()` to dump what came back.
+- **`/demo/unsafe-query-read-attack`** - SQL injection: a search with user input glued into the SQL, and attacks that dump every row or another table.
+- **`/demo/unsafe-query-write-attack`** - SQL injection that changes or destroys data.
+- **`/demo/safe`** - the fix: a `:search` named placeholder.
+- **`/demo/safe-better`** - the same fix, with the query moved into `DatabaseQueries`.
+- **`/demo/xss`** - cross-site scripting: the same input echoed raw and through `e()`.
 
 ### Lec-08 - PHP Lec 07
 
@@ -167,112 +232,47 @@ SQL practice in DB Browser for SQLite. The questions are in `database/lecture/le
 - Top 3 with ties kept
 - Dates with `strftime()`
 
-### Lec-09 - PHP Lec 08
+### Lec-07 - PHP Lec 06
 
-2026-09-25
+2026-09-21 · Code: [lec-07-php-lec-06-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-07-php-lec-06-end)
 
-- **`/demo/unsafe-query-read-attack`** - SQL injection: a search with user input glued into the SQL, and attacks that dump every row or another table.
-- **`/demo/unsafe-query-write-attack`** - SQL injection that changes or destroys data.
-- **`/demo/safe`** - the fix: a `:search` named placeholder.
-- **`/demo/safe-better`** - the same fix, with the query moved into `DatabaseQueries`.
-- **`/demo/xss`** - cross-site scripting: the same input echoed raw and through `e()`.
+- **`/games`** - the first database query: a method in `DatabaseQueries`, SQL written as a heredoc, `run()` and `fetchAll()`, and `dd()` to dump what came back.
 
-### Lec-10 - PHP Lec 09
+### Lec-06 - PHP Lec 05
 
-2026-09-28
+2026-09-18
 
-A drink sales table, built in three stages:
+The same table of games, shown three ways:
 
-- **`/drinks-starter`** - a plain table from a query with `LEFT JOIN`, `SUM` and `COALESCE`.
-- **`/drinks-broken-sort`** - clickable column headers that don't sort, and why: a placeholder can't stand in for a column name or `ASC` / `DESC`.
-- **`/drinks`** - search plus sorting done properly: cleaning up `$_GET`, a whitelist for the sort column and direction, and links built in the controller with `http_build_query()`. The 🐘 notes at the bottom of `www/controllers/drinks.php` explain the PHP idioms used.
+- **`/games-alt-syntax`** - written with the alternative syntax.
+- **`/games-std-syntax`** - the same table written with braces, for comparison.
+- **`/games-alt-with-partials`** - each table row moved into a partial (`www/views/partials/game-row.php`).
 
-### Lec-11 - PHP Lec 10
+### Lec-05 - PHP Lec 04
 
-2026-10-02
+2026-09-16
 
-- **Demo 01: cookie basics** - `/demo-01/set` (a 7-day cookie and a session cookie), `/demo-01/read` (`$_COOKIE`), `/demo-01/clear` (deleting by expiring), `/demo-01/early` ("headers already sent"), `/demo-01/deep/trap` (a cookie set without a path).
-- **Demo 02: never trust a cookie** - `/demo-02/join` and `/demo-02/discount`: a discount anyone can give themselves in DevTools.
-- **Demo 03: time zones** - `/demo-03/time`: store times in UTC, show them in Edmonton time.
+- **`/interpolation`** - double vs single quotes, `"$name"` vs `"{$name}"`, and the cases where only the braces work (text after the name, array keys, nested arrays, method calls).
+- **`/lab-schedule`** - the alternative syntax for `if` / `elseif` / `else` and `foreach` in a view, an empty-state check, and dates with `DateTimeImmutable`.
 
-### Lec-12 - PHP Lec 11
+### Lec-04 - PHP Lec 03
 
-2026-10-05
+2026-09-14
 
-- **Demo 01** - `/demo-01/form`: the same form sent with GET and with POST, and what arrives in `$_GET` and `$_POST`.
-- **Demo 02** - `/demo-02/form`: never trust what arrives. Validation on the server (`www/helpers/order.php`), with errors shown in place.
-- **Demo 03** - `/demo-03/form`: redirect after POST.
-- **Demo 04** - `/demo-04/write` and `/demo-04/read`: sessions, the session id, and its cookie.
-- **Demo 05** - `/demo-05/form`: flash messages and sticky values, carried across a redirect.
+- **`/callout-demo`** - partials, the simple version: one partial rendered three times with different data.
+- **`/team`** - partials, the realistic version: a card partial rendered once per item in a `foreach`. Also an array of associative arrays (the shape a query returns), and an escaping check on a nasty value.
+- Files: `www/views/partials/callout.php`, `member-card.php`, `document-head.php`.
 
-Lec-13 (PHP Lec 12) finished the Lec-12 material, so it has no repo of its own. Lec-14 was the PHP midterm.
+### Lec-03 - PHP Lec 02
 
-### Authentication and authorization (self-study)
+2026-09-11 · Code: [lec-03-php-lec-02-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-03-php-lec-02-end)
 
-2026-10-07 · Repo: `auth-practice` (accepted through Classroom 50)
+- **`/msg?colour=...`** - reading a query string through `$_GET`, with `??` supplying a default.
+- **`/nmsg/:colour`** - a path parameter, read as `$_GET['colour']`, and `isset()` inside a function of your own.
 
-Read it with the `authentication-and-authorization-how-to.md` handout in the same repo. Its README has a table of which file shows what.
+### Lec-02 - PHP Lec 01
 
-- **Demo 01** - hashing passwords: `password_hash()` and `password_verify()`.
-- **Demo 02** - logging in and out, a restricted page, and a one-time flash message on the login form.
-- **Demo 03** - roles: a page and a button only managers can use.
+2026-09-09 · Code: [lec-02-php-lec-01-end](https://github.com/MRU-CSIS-3512-001-202604-LEC/lec-02-php-lec-01-end)
 
----
-
-## JavaScript lectures
-
-### Lec-15 - JS Lec 01
-
-2026-10-19
-
-- **`/demo-01`** - where it runs: PHP on the server, JavaScript in the browser.
-- **`/demo-02`** - values and variables: `const`, `let`, `typeof`, `undefined`.
-- **`/demo-03`** - the `+` trap, `Number()` and `NaN`.
-- **`/demo-04`** - template literals.
-- **`/demo-05`** - truthy and falsy values, and why `===` beats `==`.
-
-### Lec-16 - JS Lec 02
-
-2026-10-21
-
-- **`/demo-01`** - functions are values: declarations, expressions and arrow functions.
-- **`/demo-02`** - arrays, indexes and `length`, `for...of`, and why not `for...in`.
-- **`/demo-03`** - callbacks and `forEach`.
-- **`/demo-04`** - `map`, `filter` and `find`, and what `find` gives back when nothing matches.
-
-### Lec-17 - JS Lec 03
-
-2026-10-23
-
-- **`/demo-01`** - objects: dot and bracket access, and adding properties.
-- **`/demo-02`** - objects are shared, not copied, and reassigning a `const`.
-- **`/demo-03`** - arrays of objects with `filter`, `map` and `find`, and JSON.
-- **`/demo-04`** - `sort`: text order by default, comparing numbers and objects, and how it changes the original array.
-- **`/demo-05`** - modules: one entry script per page, `export` and `import`, and how module paths are written.
-
-### Lec-18 - JS Lec 04
-
-2026-10-26
-
-- **`/demo-01`** - selecting from the page: `querySelector`, `querySelectorAll`, changing text, and a selector that matches nothing.
-- **`/demo-02`** - creating an element, adding it to the page, and removing one.
-- **`/demo-03`** - rendering a list from an array of objects, and emptying it before rendering again.
-- **`/demo-04`** - `textContent` vs `innerHTML`, and how `innerHTML` lets a string run as code. `innerHTML` isn't allowed in the Project; this demo shows why.
-
-### Lec-19 - JS Lec 05
-
-2026-10-28
-
-- **`/demo-01`** - listening for a click: `addEventListener`, the event object, changing the page from a listener, and passing a function rather than calling it.
-- **`/demo-02`** - submitting a form: a submit listener, the page reload a form does by default, and `preventDefault()` to stop it.
-- **`/demo-03`** - reading form fields: `value` from text and number fields (always a string), `checked` from a checkbox, and finding the selected radio button.
-- **`/demo-04`** - a form that adds an item to the array from Lec-18 and renders the list again, and the `input` event that fires on every change to a field.
-
-### Lec-20 - JS Lec 06
-
-2026-10-30
-
-- **`/demo-01`** - bubbling: a click on a button is heard by the button and by every element around it, innermost first, and `event.target` says what was actually clicked.
-- **`/demo-02`** - one listener per row, and why it fails: a row added later, or rebuilt by rendering again, has no listener. The rows come from `bag-rows.js`, a module the next two demos share.
-- **`/demo-03`** - event delegation: one listener on the list, `closest("button")` to find the clicked button even when the click lands on its icon, and rows added later working too.
-- **`/demo-04`** - reading the item's id from `data-item-id` with `dataset` (always a string), then removing the item from the array and rendering the list again.
+- **`/`** - a tour of the framework: routes, controllers and views, and which file does what. Also why every value goes through `e()` before it's echoed, PHPDoc `@var` lines in views, and the 404 page.
+- **`/hello`** - adding a route, a controller and a view of your own.
