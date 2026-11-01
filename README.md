@@ -50,6 +50,7 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Bound parameters (named placeholders like `:search`) | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09) | `/demo/safe`, `/demo/safe-better`; `/drinks` |
 | Bubbling: a click travels up through every enclosing element | [Lec-20](#lec-20---js-lec-06) | `demo-01.js` |
 | Callbacks, `forEach` | [Lec-16](#lec-16---js-lec-02) | `demo-03.js` |
+| `classList`: add and remove a class, decided from state | [Lec-21](#lec-21---js-lec-07) | `demo-03.js` |
 | `COUNT(*)` vs `COUNT(column)` | [Lec-08](#lec-08---php-lec-07) | `lec-08-analytics-finished.sql`, Q2 |
 | Controllers vs views | [Lec-02](#lec-02---php-lec-01) | `www/controllers/app/index.php`, `www/views/app/index.php` |
 | Cookies: set, read, delete, path | [Lec-11](#lec-11---php-lec-10) | `/demo-01/...` |
@@ -71,13 +72,14 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Forms: GET vs POST, `$_GET` and `$_POST` | [Lec-12](#lec-12---php-lec-11) | `/demo-01/form` |
 | Functions are values (declarations, expressions) | [Lec-16](#lec-16---js-lec-02) | `demo-01.js` |
 | "Headers already sent" | [Lec-11](#lec-11---php-lec-10) | `/demo-01/early` |
+| `hidden`: show and hide an element, and the CSS `display` rule that beats it | [Lec-21](#lec-21---js-lec-07) | `demo-01.js`; the `[hidden]` rule at the end of `www/public/styles/app.css` |
 | `innerHTML` vs `textContent` | [Lec-18](#lec-18---js-lec-04) | `demo-04.js` |
 | `input` event | [Lec-19](#lec-19---js-lec-05) | `demo-04.js` |
 | Interpolation: `"$name"` and `"{$name}"` | [Lec-05](#lec-05---php-lec-04) | `/interpolation` |
 | JSON | [Lec-17](#lec-17---js-lec-03) | `demo-03.js` |
 | `LEFT JOIN` and `COALESCE` | [Lec-08](#lec-08---php-lec-07), [Lec-10](#lec-10---php-lec-09) | `database/lecture/` SQL files; `drink_sales_starter()` |
 | Links built in the controller (`http_build_query()`) | [Lec-10](#lec-10---php-lec-09) | `www/controllers/drinks.php` |
-| Modules: `import` and `export` | [Lec-17](#lec-17---js-lec-03), [Lec-20](#lec-20---js-lec-06) | Lec-17 `demo-05.js`, `demo-05-helpers.js`; Lec-20 `bag-rows.js` |
+| Modules: `import` and `export` | [Lec-17](#lec-17---js-lec-03), [Lec-20](#lec-20---js-lec-06), [Lec-21](#lec-21---js-lec-07) | Lec-17 `demo-05.js`, `demo-05-helpers.js`; Lec-20 `bag-rows.js`; Lec-21 `hero-list.js` |
 | `Number()`, `NaN` and the `+` trap | [Lec-15](#lec-15---js-lec-01) | `demo-03.js` |
 | Null coalescing (`??`) | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09) | `www/controllers/msg/index.php`; `drinks.php` |
 | Objects (JS): dot and bracket access | [Lec-17](#lec-17---js-lec-03) | `demo-01.js` |
@@ -97,10 +99,13 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | `sort` (JS) | [Lec-17](#lec-17---js-lec-03) | `demo-04.js` |
 | Sorting a table by clicking its headers | [Lec-10](#lec-10---php-lec-09) | `/drinks-broken-sort`, `/drinks` |
 | SQL injection | [Lec-09](#lec-09---php-lec-08) | `/demo/unsafe-query-read-attack`, `/demo/unsafe-query-write-attack` |
+| State: one page, many views, drawn from a few variables | [Lec-21](#lec-21---js-lec-07) | `demo-02.js` |
 | Sticky form values | [Lec-12](#lec-12---php-lec-11) | `/demo-05/form` |
 | Template literals | [Lec-15](#lec-15---js-lec-01) | `demo-04.js` |
+| Templates (`<template>`): repeated markup, `cloneNode(true)` | [Lec-21](#lec-21---js-lec-07) | `demo-04.js`, `www/views/demo-04.php` |
 | Time zones: store UTC, show local | [Lec-11](#lec-11---php-lec-10) | `/demo-03/time` |
 | Truthy, falsy, `===` vs `==` | [Lec-15](#lec-15---js-lec-01) | `demo-05.js` |
+| Validating markup your JavaScript built (duplicate ids) | [Lec-21](#lec-21---js-lec-07) | `demo-04.js` STEP 3 |
 | Variables (JS): `const`, `let`, `typeof` | [Lec-15](#lec-15---js-lec-01) | `demo-02.js` |
 | Where JavaScript runs | [Lec-15](#lec-15---js-lec-01) | `demo-01.js` |
 | XSS (cross-site scripting) | [Lec-09](#lec-09---php-lec-08), [Lec-18](#lec-18---js-lec-04) | `/demo/xss`; `demo-04.js` |
@@ -108,6 +113,15 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 ---
 
 ## JavaScript lectures
+
+### Lec-21 - JS Lec 07
+
+2026-11-02
+
+- **`/demo-01`** - hiding an element with `hidden`, and why it fails on an element whose CSS sets `display` (here `display: flex`). STEP 3 is not in the JS file: it's the commented-out `[hidden] { display: none !important; }` rule at the end of `www/public/styles/app.css`.
+- **`/demo-02`** - one page, two views: the state is two `let` variables, `render()` hides every view and shows the one the state names, and every click changes the state and then calls `render()`. Try changing the starting values to `"sheet"` and `7` and reloading. The heroes come from `hero-list.js`, a module this demo and the next share.
+- **`/demo-03`** - marking the chosen hero with `classList`: STEP 1 adds the class straight onto the page and ends up marking two heroes; STEP 2 keeps the choice in a variable and lets the render function decide. Comment STEP 1's listener out again before you uncomment STEP 2, as the file's header says.
+- **`/demo-04`** - building rows from a `<template>`: a template's contents aren't on the page, then clone, find the `li` in the copy, fill it with `textContent`, append it. STEP 3 shows why a template must never hold an `id`: two copies give two elements with the same id, which the W3C validator reports as an error.
 
 ### Lec-20 - JS Lec 06
 
