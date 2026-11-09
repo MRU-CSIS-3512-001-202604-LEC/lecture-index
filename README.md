@@ -31,7 +31,7 @@ php -S localhost:8000 -t www/public www/public/index.php
 
 Then open http://localhost:8000 and visit the routes listed below. You only need `build.php` for lectures that use the database (Lec-07 onward), and running it again resets the data. From Lec-11 on, the home page links to every demo.
 
-In the JS lectures, the demo files are in `www/public/js/`. Each one is split into numbered STEPs: uncomment one step at a time and watch the console.
+In the JS lectures, the demo files are in `www/public/js/`. Each one is split into numbered STEPs: uncomment one step at a time and watch the console. In the API lectures (Lec-24 and Lec-25), most of the steps are in the PHP files in `www/controllers/api/` instead. From Lec-22 on, the demos read from the fantasy database through JSON endpoints, so run `php database/build.php` first.
 
 ---
 
@@ -45,11 +45,16 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Array methods: `map`, `filter`, `find` | [Lec-16](#lec-16---js-lec-02), [Lec-17](#lec-17---js-lec-03) | Lec-16 `demo-04.js`; Lec-17 `demo-03.js` |
 | Arrays (JS), `length`, `for...of` | [Lec-16](#lec-16---js-lec-02) | `demo-02.js` |
 | Arrow functions | [Lec-16](#lec-16---js-lec-02) | `demo-01.js` |
+| `async` and `await` | [Lec-23](#lec-23---js-lec-09) | `demo-01.js` |
 | Authentication (logging in and out) | [Auth demo](#authentication-and-authorization-self-study) | `demo-02` |
 | Authorization and roles | [Auth demo](#authentication-and-authorization-self-study) | `demo-02`, `demo-03` |
 | Bound parameters (named placeholders like `:search`) | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09) | `/demo/safe`, `/demo/safe-better`; `/drinks` |
 | Bubbling: a click travels up through every enclosing element | [Lec-20](#lec-20---js-lec-06) | `demo-01.js` |
+| Cache in localStorage: read the copy first, fetch only on a miss | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEPs 2-3 |
+| Cache kept up to date after a change, and cleared on logout | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEPs 5-6 |
+| Cache key per user (`inventory:7`, not `inventory`) | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEP 4 |
 | Callbacks, `forEach` | [Lec-16](#lec-16---js-lec-02) | `demo-03.js` |
+| `catch()` at the end of a fetch chain | [Lec-22](#lec-22---js-lec-08) | `demo-04.js` |
 | `classList`: add and remove a class, decided from state | [Lec-21](#lec-21---js-lec-07) | `demo-03.js` |
 | `COUNT(*)` vs `COUNT(column)` | [Lec-08](#lec-08---php-lec-07) | `lec-08-analytics-finished.sql`, Q2 |
 | Controllers vs views | [Lec-02](#lec-02---php-lec-01) | `www/controllers/app/index.php`, `www/views/app/index.php` |
@@ -59,13 +64,18 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | `DatabaseQueries` class, `run()` and `fetchAll()` | [Lec-07](#lec-07---php-lec-06), [Lec-09](#lec-09---php-lec-08) | `www/queries/DatabaseQueries.php` |
 | Dates and times (`DateTimeImmutable`) | [Lec-05](#lec-05---php-lec-04), [Lec-11](#lec-11---php-lec-10) | `/lab-schedule`; `/demo-03/time` |
 | Debugging with `d()` and `dd()` | [Lec-07](#lec-07---php-lec-06), [Lec-10](#lec-10---php-lec-09) | `www/controllers/games.php`; `drinks.php` |
+| DELETE request from the page | [Lec-23](#lec-23---js-lec-09), [Lec-25](#lec-25---api-lec-02-recorded) | Lec-23 `demo-04.js`; Lec-25 `demo-02.js` |
 | DOM: create, append, remove elements | [Lec-18](#lec-18---js-lec-04) | `demo-02.js` |
 | DOM: `querySelector`, `querySelectorAll` | [Lec-18](#lec-18---js-lec-04) | `demo-01.js` |
 | DOM: render a list from data | [Lec-18](#lec-18---js-lec-04), [Lec-19](#lec-19---js-lec-05) | Lec-18 `demo-03.js`; Lec-19 `demo-04.js` |
+| Empty results: no data, nothing matches, or a list | [Lec-25](#lec-25---api-lec-02-recorded) | `www/controllers/api/merchants.php`, `demo-04.js` |
+| Endpoints (PHP): a controller that answers with JSON | [Lec-24](#lec-24---api-lec-01), [Lec-25](#lec-25---api-lec-02-recorded) | `www/routes/api.php`, `www/controllers/api/` |
 | Events: `addEventListener` and the event object | [Lec-19](#lec-19---js-lec-05) | `demo-01.js` |
 | Events: delegation (one listener for a whole list) | [Lec-20](#lec-20---js-lec-06) | `demo-02.js` (the problem), `demo-03.js` |
 | Events: `event.target` and `closest()` | [Lec-20](#lec-20---js-lec-06) | `demo-01.js`, `demo-03.js` |
 | Escaping output with `e()` | [Lec-02](#lec-02---php-lec-01), [Lec-04](#lec-04---php-lec-03), [Lec-09](#lec-09---php-lec-08) | home page; `/team`; `/demo/xss` |
+| `fetch()` (JS) and Promises: `then()`, `response.json()` | [Lec-22](#lec-22---js-lec-08) | `demo-01.js`, `demo-02.js` |
+| `fetch()` vs `fetchAll()` (PDO): one row or a list | [Lec-24](#lec-24---api-lec-01) | `hero_by_id()` in `www/queries/DatabaseQueries.php` (DEMO-1 STEP 3) |
 | Flash messages | [Lec-12](#lec-12---php-lec-11), [Auth demo](#authentication-and-authorization-self-study) | `/demo-05/form`; login page |
 | Form fields in JS: `value`, `checked`, radio buttons | [Lec-19](#lec-19---js-lec-05) | `demo-03.js` |
 | Form validation on the server | [Lec-12](#lec-12---php-lec-11) | `/demo-02/form`, `www/helpers/order.php` |
@@ -73,27 +83,37 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Functions are values (declarations, expressions) | [Lec-16](#lec-16---js-lec-02) | `demo-01.js` |
 | "Headers already sent" | [Lec-11](#lec-11---php-lec-10) | `/demo-01/early` |
 | `hidden`: show and hide an element, and the CSS `display` rule that beats it | [Lec-21](#lec-21---js-lec-07) | `demo-01.js`; the `[hidden]` rule at the end of `www/public/styles/app.css` |
+| `http_response_code()`: 401, 404 and 400 from PHP | [Lec-24](#lec-24---api-lec-01), [Lec-25](#lec-25---api-lec-02-recorded) | Lec-24 `hero.php`, `login.php`; Lec-25 `inventory-delete.php` |
 | `innerHTML` vs `textContent` | [Lec-18](#lec-18---js-lec-04) | `demo-04.js` |
 | `input` event | [Lec-19](#lec-19---js-lec-05) | `demo-04.js` |
 | Interpolation: `"$name"` and `"{$name}"` | [Lec-05](#lec-05---php-lec-04) | `/interpolation` |
 | JSON | [Lec-17](#lec-17---js-lec-03) | `demo-03.js` |
+| JSON body: reading it in PHP (`php://input`, `json_decode`) | [Lec-24](#lec-24---api-lec-01) | `www/controllers/api/login.php` |
+| JSON body: sending a POST from JavaScript | [Lec-23](#lec-23---js-lec-09) | `demo-03.js` |
+| `json_encode()` and the `Content-Type` header | [Lec-24](#lec-24---api-lec-01) | `www/controllers/api/hero.php` |
 | `LEFT JOIN` and `COALESCE` | [Lec-08](#lec-08---php-lec-07), [Lec-10](#lec-10---php-lec-09) | `database/lecture/` SQL files; `drink_sales_starter()` |
 | Links built in the controller (`http_build_query()`) | [Lec-10](#lec-10---php-lec-09) | `www/controllers/drinks.php` |
+| localStorage: JSON in and out, and the stored copy is a snapshot | [Lec-26](#lec-26---js-lec-10) | `demo-02.js` |
+| localStorage: `setItem`, `getItem`, `removeItem`, and strings only | [Lec-26](#lec-26---js-lec-10) | `demo-01.js` |
 | Modules: `import` and `export` | [Lec-17](#lec-17---js-lec-03), [Lec-20](#lec-20---js-lec-06), [Lec-21](#lec-21---js-lec-07) | Lec-17 `demo-05.js`, `demo-05-helpers.js`; Lec-20 `bag-rows.js`; Lec-21 `hero-list.js` |
 | `Number()`, `NaN` and the `+` trap | [Lec-15](#lec-15---js-lec-01) | `demo-03.js` |
-| Null coalescing (`??`) | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09) | `www/controllers/msg/index.php`; `drinks.php` |
+| Null coalescing (`??`) | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09), [Lec-25](#lec-25---api-lec-02-recorded) | `www/controllers/msg/index.php`; `drinks.php`; Lec-25 `inventory-delete.php` (DEMO-3 removes it) |
 | Objects (JS): dot and bracket access | [Lec-17](#lec-17---js-lec-03) | `demo-01.js` |
 | Objects are shared, not copied | [Lec-17](#lec-17---js-lec-03) | `demo-02.js` |
 | Partials | [Lec-04](#lec-04---php-lec-03), [Lec-06](#lec-06---php-lec-05) | `/callout-demo`, `/team`; `/games-alt-with-partials` |
 | Password hashing | [Auth demo](#authentication-and-authorization-self-study) | `demo-01` |
-| Path parameters (`/nmsg/:colour`) | [Lec-03](#lec-03---php-lec-02) | `www/routes/web.php` |
+| Path parameters (`/nmsg/:colour`) | [Lec-03](#lec-03---php-lec-02), [Lec-25](#lec-25---api-lec-02-recorded) | `www/routes/web.php`; Lec-25 `/api/inventory/:item_id` in `www/routes/api.php` |
 | PHP idioms (`===`, `.`, `->`, `[]`, `require`) | [Lec-10](#lec-10---php-lec-09) | 🐘 notes at the bottom of `drinks.php` |
 | PHPDoc `@var` lines in views | [Lec-02](#lec-02---php-lec-01) | `www/views/app/index.php` |
 | `preventDefault()` on a form submit | [Lec-19](#lec-19---js-lec-05) | `demo-02.js` |
+| `push()` | [Lec-26](#lec-26---js-lec-10) | `demo-02.js` STEP 2 |
+| Query string in a fetch URL | [Lec-22](#lec-22---js-lec-08) | `demo-04.js` |
 | Query strings and `$_GET` | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09) | `/msg?colour=...`; `/drinks` |
 | Redirect after POST | [Lec-12](#lec-12---php-lec-11) | `/demo-03/form` |
 | Remove an item: change the array, then render again | [Lec-20](#lec-20---js-lec-06) | `demo-04.js` |
+| `response.ok`: a 404 is a reply, not a failure | [Lec-23](#lec-23---js-lec-09) | `demo-02.js` |
 | Routes (`www/routes/web.php`) | [Lec-02](#lec-02---php-lec-01) | `www/routes/web.php` |
+| `rowCount()`: how many rows a DELETE removed | [Lec-25](#lec-25---api-lec-02-recorded) | `remove_from_inventory()`, `inventory-delete.php` (DEMO-1) |
 | Search with `LIKE` | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09) | `/demo/safe`; `/drinks` |
 | Sessions (`$_SESSION`) | [Lec-12](#lec-12---php-lec-11), [Auth demo](#authentication-and-authorization-self-study) | `/demo-04/write`, `/demo-04/read` |
 | `sort` (JS) | [Lec-17](#lec-17---js-lec-03) | `demo-04.js` |
@@ -102,17 +122,68 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | State: one page, many views, drawn from a few variables | [Lec-21](#lec-21---js-lec-07) | `demo-02.js` |
 | Sticky form values | [Lec-12](#lec-12---php-lec-11) | `/demo-05/form` |
 | Template literals | [Lec-15](#lec-15---js-lec-01) | `demo-04.js` |
-| Templates (`<template>`): repeated markup, `cloneNode(true)` | [Lec-21](#lec-21---js-lec-07) | `demo-04.js`, `www/views/demo-04.php` |
+| Templates (`<template>`): repeated markup, `cloneNode(true)` | [Lec-21](#lec-21---js-lec-07), [Lec-22](#lec-22---js-lec-08) | Lec-21 `demo-04.js`, `www/views/demo-04.php`; Lec-22 `demo-04.js` |
 | Time zones: store UTC, show local | [Lec-11](#lec-11---php-lec-10) | `/demo-03/time` |
 | Truthy, falsy, `===` vs `==` | [Lec-15](#lec-15---js-lec-01) | `demo-05.js` |
+| `try` / `catch` around `await` | [Lec-23](#lec-23---js-lec-09) | `demo-02.js` |
+| Validating an endpoint's input (400) | [Lec-25](#lec-25---api-lec-02-recorded) | `www/controllers/api/inventory-delete.php` (DEMO-3) |
 | Validating markup your JavaScript built (duplicate ids) | [Lec-21](#lec-21---js-lec-07) | `demo-04.js` STEP 3 |
+| `var_dump` in an endpoint: read it in the Response tab | [Lec-24](#lec-24---api-lec-01), [Lec-25](#lec-25---api-lec-02-recorded) | Lec-24 `login.php` (DEMO-3); Lec-25 `inventory-delete.php` (DEMO-1 STEP 1) |
 | Variables (JS): `const`, `let`, `typeof` | [Lec-15](#lec-15---js-lec-01) | `demo-02.js` |
 | Where JavaScript runs | [Lec-15](#lec-15---js-lec-01) | `demo-01.js` |
 | XSS (cross-site scripting) | [Lec-09](#lec-09---php-lec-08), [Lec-18](#lec-18---js-lec-04) | `/demo/xss`; `demo-04.js` |
-
 ---
 
-## JavaScript lectures
+## JavaScript and API lectures
+
+### Lec-26 - JS Lec 10
+
+2026-11-16
+
+The Network tab and the Application panel (Storage, Local storage) do most of the explaining today. To start a demo fresh, clear Local storage there.
+
+- **`/demo-01`** - localStorage keeps strings and only strings: a number comes back as text (`"11" + 1` is `"111"`), an object is stored as `"[object Object]"`, and a key that isn't there gives `null`.
+- **`/demo-02`** - storing an object as JSON and parsing it back. The stored text is a snapshot: changing the object afterwards with `push()` doesn't change what's stored.
+- **`/demo-03`** - caching a hero's bag: STEP 2 stores a copy after the fetch, STEP 3 reads the copy first and skips the request on a hit, STEP 4 fixes the key so one hero can't see another's bag, STEP 5 updates the copy after a drop, STEP 6 removes it on logout. STEP 4 is a one-line edit in `cacheKey()`, described in the file's header. The page shows the cache key and where the bag came from.
+
+### Lec-25 - API Lec 02 (recorded)
+
+2026-11-13 · Five video clips instead of a live lecture
+
+Most steps are in the PHP files in `www/controllers/api/`; each file's header lists them in order. Run `php database/build.php` to get dropped items back.
+
+- **`/demo-01`** - `DELETE /api/inventory/:item_id`, built step by step and tested from the Console: the path's value lands in `$_GET`, and `rowCount()` of 0 means a 404.
+- **`/demo-02`** - the same DELETE from a Drop button: the database changes when the server says yes, and the page only changes when your code changes the array.
+- **`/demo-03`** - the DELETE with no `hero_id`: a PHP warning breaks the JSON, then a 400 before the query runs.
+- **`/demo-04`** - `GET /api/merchants/:item_id`: an empty array can't tell two of the three cases apart, so the JSON has to.
+
+### Lec-24 - API Lec 01
+
+2026-11-09
+
+The steps are in the PHP files, `www/controllers/api/hero.php` and `login.php`, and each file's header lists them in order. The pages' JavaScript is finished.
+
+- **`/demo-01`** - `GET /api/hero?id=7`, built step by step: `echo` can't print an array, `json_encode()` can, then `fetch()` vs `fetchAll()` and the `Content-Type` header.
+- **`/demo-02`** - `GET /api/hero?id=999`: with no row, the unfixed endpoint answers `false` with status 200. Then `http_response_code()` and a JSON error.
+- **`/demo-03`** - `POST /api/login`: `$_POST` is empty for a JSON body, so read `php://input` and `json_decode()` it, then answer with an id or a 401.
+
+### Lec-23 - JS Lec 09
+
+2026-11-06
+
+- **`/demo-01`** - Wednesday's `then` chain rewritten with `async` and `await`: `await` pauses the function, not the page, and an `async` function hands back a Promise. Comment STEP 1's chain out before you uncomment STEP 2, as the file's header says.
+- **`/demo-02`** - `try` / `catch` around `await`, a missing `await`, and two kinds of 404: a JSON error and the framework's HTML page. The file's header lists the live edits in order.
+- **`/demo-03`** - a login form that POSTs a JSON body: a known email moves to the character sheet, an unknown one stays on the form with a message. Look at the request's Payload tab.
+- **`/demo-04`** - a DELETE request from a Drop button, then the array changes and the list renders again. (Not reached in lecture; the Lec-25 recording covers it.) Run `php database/build.php` to get dropped items back.
+
+### Lec-22 - JS Lec 08
+
+2026-11-04
+
+- **`/demo-01`** - `fetch()` doesn't wait: it hands back a Promise right away, and `then()` says what to do with the response when it arrives.
+- **`/demo-02`** - two waits: the response, then `response.json()` for the body, chained with two `then`s; and why keeping what `fetch()` hands back gives you a Promise, not the data.
+- **`/demo-03`** - the Lec-21 hero views with the heroes from `/api/heroes`: building the list right after calling `fetch()` finds no heroes, so it moves inside the `then`. Comment STEP 1's last block out before you uncomment STEP 2, as the file's header says.
+- **`/demo-04`** - one slot's items, asked for with a query string (`/api/items?slot=head`) and drawn with a `<template>`, and a `catch()` for when no reply comes back.
 
 ### Lec-21 - JS Lec 07
 
