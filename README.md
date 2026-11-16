@@ -40,6 +40,7 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Topic | Lecture | Where to look |
 | --- | --- | --- |
 | 404 page | [Lec-02](#lec-02---php-lec-01) | `www/views/404.php` |
+| 409 Conflict: adding something that's already there | [Lec-27](#lec-27---js-lec-11) | `www/controllers/api/wanted-add.php`; `demo-03.js` STEP 2 |
 | Aggregates: `COUNT`, `SUM`, `GROUP BY` | [Lec-08](#lec-08---php-lec-07), [Lec-10](#lec-10---php-lec-09) | `database/lecture/` SQL files; `drink_sales_starter()` |
 | Alternative syntax (`if:` / `endif;`, `foreach:` / `endforeach;`) | [Lec-05](#lec-05---php-lec-04), [Lec-06](#lec-06---php-lec-05) | `/lab-schedule`; `/games-alt-syntax` vs `/games-std-syntax` |
 | Array methods: `map`, `filter`, `find` | [Lec-16](#lec-16---js-lec-02), [Lec-17](#lec-17---js-lec-03) | Lec-16 `demo-04.js`; Lec-17 `demo-03.js` |
@@ -51,7 +52,7 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Bound parameters (named placeholders like `:search`) | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09) | `/demo/safe`, `/demo/safe-better`; `/drinks` |
 | Bubbling: a click travels up through every enclosing element | [Lec-20](#lec-20---js-lec-06) | `demo-01.js` |
 | Cache in localStorage: read the copy first, fetch only on a miss | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEPs 2-3 |
-| Cache kept up to date after a change, and cleared on logout | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEPs 5-6 |
+| Cache kept up to date after a change, and cleared on logout | [Lec-26](#lec-26---js-lec-10), [Lec-27](#lec-27---js-lec-11) | Lec-26 `demo-03.js` STEPs 5-6; Lec-27 `demo-03.js` STEP 3 (after an add) |
 | Cache key per user (`inventory:7`, not `inventory`) | [Lec-26](#lec-26---js-lec-10) | `demo-03.js` STEP 4 |
 | Callbacks, `forEach` | [Lec-16](#lec-16---js-lec-02) | `demo-03.js` |
 | `catch()` at the end of a fetch chain | [Lec-22](#lec-22---js-lec-08) | `demo-04.js` |
@@ -85,11 +86,11 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | `hidden`: show and hide an element, and the CSS `display` rule that beats it | [Lec-21](#lec-21---js-lec-07) | `demo-01.js`; the `[hidden]` rule at the end of `www/public/styles/app.css` |
 | `http_response_code()`: 401, 404 and 400 from PHP | [Lec-24](#lec-24---api-lec-01), [Lec-25](#lec-25---api-lec-02-recorded) | Lec-24 `hero.php`, `login.php`; Lec-25 `inventory-delete.php` |
 | `innerHTML` vs `textContent` | [Lec-18](#lec-18---js-lec-04) | `demo-04.js` |
-| `input` event | [Lec-19](#lec-19---js-lec-05) | `demo-04.js` |
+| `input` event | [Lec-19](#lec-19---js-lec-05), [Lec-27](#lec-27---js-lec-11) | Lec-19 `demo-04.js`; Lec-27 `demo-01.js` |
 | Interpolation: `"$name"` and `"{$name}"` | [Lec-05](#lec-05---php-lec-04) | `/interpolation` |
 | JSON | [Lec-17](#lec-17---js-lec-03) | `demo-03.js` |
 | JSON body: reading it in PHP (`php://input`, `json_decode`) | [Lec-24](#lec-24---api-lec-01) | `www/controllers/api/login.php` |
-| JSON body: sending a POST from JavaScript | [Lec-23](#lec-23---js-lec-09) | `demo-03.js` |
+| JSON body: sending a POST from JavaScript | [Lec-23](#lec-23---js-lec-09), [Lec-27](#lec-27---js-lec-11) | Lec-23 `demo-03.js`; Lec-27 `demo-03.js` STEP 2 |
 | `json_encode()` and the `Content-Type` header | [Lec-24](#lec-24---api-lec-01) | `www/controllers/api/hero.php` |
 | `LEFT JOIN` and `COALESCE` | [Lec-08](#lec-08---php-lec-07), [Lec-10](#lec-10---php-lec-09) | `database/lecture/` SQL files; `drink_sales_starter()` |
 | Links built in the controller (`http_build_query()`) | [Lec-10](#lec-10---php-lec-09) | `www/controllers/drinks.php` |
@@ -100,6 +101,7 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | Null coalescing (`??`) | [Lec-03](#lec-03---php-lec-02), [Lec-10](#lec-10---php-lec-09), [Lec-25](#lec-25---api-lec-02-recorded) | `www/controllers/msg/index.php`; `drinks.php`; Lec-25 `inventory-delete.php` (DEMO-3 removes it) |
 | Objects (JS): dot and bracket access | [Lec-17](#lec-17---js-lec-03) | `demo-01.js` |
 | Objects are shared, not copied | [Lec-17](#lec-17---js-lec-03) | `demo-02.js` |
+| Out-of-order responses: ignore an answer the box has moved past | [Lec-27](#lec-27---js-lec-11) | `demo-02.js` STEP 2 |
 | Partials | [Lec-04](#lec-04---php-lec-03), [Lec-06](#lec-06---php-lec-05) | `/callout-demo`, `/team`; `/games-alt-with-partials` |
 | Password hashing | [Auth demo](#authentication-and-authorization-self-study) | `demo-01` |
 | Path parameters (`/nmsg/:colour`) | [Lec-03](#lec-03---php-lec-02), [Lec-25](#lec-25---api-lec-02-recorded) | `www/routes/web.php`; Lec-25 `/api/inventory/:item_id` in `www/routes/api.php` |
@@ -114,7 +116,8 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 | `response.ok`: a 404 is a reply, not a failure | [Lec-23](#lec-23---js-lec-09) | `demo-02.js` |
 | Routes (`www/routes/web.php`) | [Lec-02](#lec-02---php-lec-01) | `www/routes/web.php` |
 | `rowCount()`: how many rows a DELETE removed | [Lec-25](#lec-25---api-lec-02-recorded) | `remove_from_inventory()`, `inventory-delete.php` (DEMO-1) |
-| Search with `LIKE` | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09) | `/demo/safe`; `/drinks` |
+| Search as you type: a request per keystroke, from the third character | [Lec-27](#lec-27---js-lec-11) | `demo-01.js`; `www/controllers/api/items.php` |
+| Search with `LIKE` | [Lec-09](#lec-09---php-lec-08), [Lec-10](#lec-10---php-lec-09), [Lec-27](#lec-27---js-lec-11) | `/demo/safe`; `/drinks`; Lec-27 `items_starting_with()` |
 | Sessions (`$_SESSION`) | [Lec-12](#lec-12---php-lec-11), [Auth demo](#authentication-and-authorization-self-study) | `/demo-04/write`, `/demo-04/read` |
 | `sort` (JS) | [Lec-17](#lec-17---js-lec-03) | `demo-04.js` |
 | Sorting a table by clicking its headers | [Lec-10](#lec-10---php-lec-09) | `/drinks-broken-sort`, `/drinks` |
@@ -135,6 +138,16 @@ In the JS lectures, the demo files are in `www/public/js/`. Each one is split in
 ---
 
 ## JavaScript and API lectures
+
+### Lec-27 - JS Lec 11
+
+2026-11-18
+
+Keep the Network tab open. The Project's add-a-game dropdown uses all three demos.
+
+- **`/demo-01`** - search as you type: every keystroke fires an `input` event and sends a request to `/api/items?search=...` (STEP 1), then nothing is sent until the box has 3 characters (STEP 2). The search runs in the database, not in JavaScript.
+- **`/demo-02`** - responses arrive when they arrive. Tick "Slow server" and type quickly: an older search's answer arrives last and replaces the newer one. STEP 2 ignores any answer whose search isn't what the box says now. `slow-server.js` fakes the slow server; you don't need to read it.
+- **`/demo-03`** - adding a search result to a cached Wanted list: STEP 2 sends the POST and adds the item to the page, STEP 3 updates the copy in localStorage too. Without STEP 3, a reload brings back the old list. Adding an item twice gets a 409.
 
 ### Lec-26 - JS Lec 10
 
